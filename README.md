@@ -1,13 +1,12 @@
-# Care Privacy
+# Consent Management Dashboard
 
-This project implements a consent flow UI for users to revoke consent at any time.
+This project provides a simple consent management dashboard with a UI to list all consent records and revoke consent when needed.
 
-## Features
+## Requirements
 
-* Revoke consent button on user profile page
-* Revocation updates consent record status to 'revoked' and emits a webhook
-* Revoked consent prevents AI service from accessing user's data
+* Python 3.8+
+* pytest 6.2.5+
 
-## Tests
+## Running the Tests
 
-Run tests using `python -m pytest`
+To run the tests, use the following command:
