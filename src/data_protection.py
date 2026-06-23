@@ -10,35 +10,34 @@ class EncryptionKey:
 class DataProtection:
     def __init__(self):
         self.keys = {}
+        self.data = {}
 
     def generate_key(self, key_id: str) -> EncryptionKey:
-        key = EncryptionKey(key=f"key_{key_id}", rotation_date="2024-01-01")
+        key = EncryptionKey(key_id, "2024-01-01")
         self.keys[key_id] = key
         return key
 
-    def encrypt_data_at_rest(self, data: Dict, key_id: str) -> str:
+    def encrypt_data(self, data_id: str, data: str, key_id: str) -> str:
         key = self.keys.get(key_id)
         if key:
-            encrypted_data = json.dumps(data).encode()
-            # Simulate AES-256 encryption
-            encrypted_data = encrypted_data.hex()
+            encrypted_data = f"encrypted_{data}"
+            self.data[data_id] = encrypted_data
             return encrypted_data
         else:
             raise ValueError("Key not found")
 
-    def encrypt_data_in_transit(self, data: Dict, key_id: str) -> str:
+    def decrypt_data(self, data_id: str, key_id: str) -> str:
+        encrypted_data = self.data.get(data_id)
         key = self.keys.get(key_id)
-        if key:
-            encrypted_data = json.dumps(data).encode()
-            # Simulate TLS 1.3 encryption
-            encrypted_data = encrypted_data.hex()
-            return encrypted_data
+        if encrypted_data and key:
+            decrypted_data = encrypted_data.replace("encrypted_", "")
+            return decrypted_data
         else:
-            raise ValueError("Key not found")
+            raise ValueError("Data or key not found")
 
     def rotate_key(self, key_id: str) -> None:
         key = self.keys.get(key_id)
         if key:
-            key.rotation_date = "2024-01-02"
+            key.rotation_date = "2024-01-15"
         else:
             raise ValueError("Key not found")

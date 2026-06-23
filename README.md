@@ -1,12 +1,20 @@
-# Consent Management Dashboard
+# care-privacy
 
-This project provides a simple consent management dashboard with a UI to list all consent records and revoke consent when needed.
+A secure data protection framework that encrypts data both in transit and at rest.
 
-## Requirements
+## Features
 
-* Python 3.8+
-* pytest 6.2.5+
+* Industry-standard encryption protocols (e.g., TLS, AES)
+* Secure key management and rotation
+* Data at rest is encrypted and accessible only through authorized channels
 
-## Running the Tests
+## Usage
 
-To run the tests, use the following command:
+1. Generate a key using `DataProtection.generate_key()`
+2. Encrypt data using `DataProtection.encrypt_data()`
+3. Decrypt data using `DataProtection.decrypt_data()`
+4. Rotate keys using `DataProtection.rotate_key()`
+
+## Testing
+
+Run tests using `pytest` command.
