@@ -1,20 +1,4 @@
-# care-privacy
-
-A secure data protection framework that encrypts data both in transit and at rest.
-
-## Features
-
-* Industry-standard encryption protocols (e.g., TLS, AES)
-* Secure key management and rotation
-* Data at rest is encrypted and accessible only through authorized channels
-
-## Usage
-
-1. Generate a key using `DataProtection.generate_key()`
-2. Encrypt data using `DataProtection.encrypt_data()`
-3. Decrypt data using `DataProtection.decrypt_data()`
-4. Rotate keys using `DataProtection.rotate_key()`
-
-## Testing
-
-Run tests using `pytest` command.
+# Consent Form Project
+This project provides a simple implementation of a consent form for AI services.
+It allows users to toggle data categories on and off before submitting the form.
+The submitted consent record is stored in an in-memory database.
